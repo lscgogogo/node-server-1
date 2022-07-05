@@ -12,7 +12,7 @@ app.get('/',(req,res)=>{
     res.send('hollw nodejs')
 })
 app.get('/preview/:key',cors(),(req,res)=>{
-    res.sendfile(
+    res.sendFile(
         `uploads/${req.params.key}`,
         {
             root:__dirname,
