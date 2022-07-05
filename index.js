@@ -27,7 +27,7 @@ app.get('/preview/:key',cors(),(req,res)=>{
 })
 
 app.post('/upload',cors(),upload.single('file'),(req,res)=>{
-    res.send('here')
+    res.send(req.file.fieldname)
 })
 
 var port = process.env.PORT || 3000
