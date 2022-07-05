@@ -1,11 +1,16 @@
 const express = require('express')
 const multer = require('multer')
-const app =express()
 const upload = multer({dest:'yyy/'})
+const cors = require('cors')
+
+const app =express()
 
 app.options('/option',cors())
 // xxx跟input的name一致
 
+app.get('/',(req,res)=>{
+    res.send('hollw nodejs')
+})
 app.get('/preview/:key',cors(),(req,res)=>{
     res.sendfile(
         `uploads/${req.params.key}`,
@@ -25,4 +30,5 @@ app.post('/upload',upload.single('xxx'),(req,res)=>{
     res.send('here')
 })
 
-app.listen(3000)
+var port = process.env.PORT || 3000
+app.listen(port)
