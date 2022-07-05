@@ -26,7 +26,7 @@ app.get('/preview/:key',cors(),(req,res)=>{
     };
 })
 
-app.post('/upload',upload.single('file'),(req,res)=>{
+app.post('/upload',cors(),upload.single('file'),(req,res)=>{
     res.send('here')
 })
 
